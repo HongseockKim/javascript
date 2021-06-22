@@ -7,7 +7,7 @@ Code();
 function Code(){
     let globalNams = '전역변수';
 {
-    let names = "홍석";
+    let names = "홍석";cd
     console.log(names);
     names = "김홍석";
     console.log(names);
@@ -16,6 +16,10 @@ function Code(){
 
 //var 쓰지말래요 ... 
 /*쓰지 말라는 이유 */
+
+/* var 는 읽기 와 쓰기가 가능하다는 장점? 이 있다 */
+
+/*단 const 는 읽기만 가능하다 다시 다른값으로 쓰는걸 못한다. */
 console.log(age);
 age = 4;
 var age;
