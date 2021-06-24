@@ -136,7 +136,7 @@ for (const key in users){
 }
 console.log(user3);
 
-//new 버전
+//new 버전 
 const user4 = {};
 // Object.assign(taget , souce);
 //이렇게 해도 위와 같이 user4 의 빈 객체에
