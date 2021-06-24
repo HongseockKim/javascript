@@ -54,10 +54,15 @@ fruits.forEach((value,idx,array) => console.log(value,idx,array));
 fruits.push('🍒','🍑');
 console.log(fruits);
 
-//pop  배열 하나 뺴기
+//pop  배열 하나 뺴기  데이터가 그냥 빠지는 게 아니고 빠지면서 그 빠진 데이터 가 리턴 된다;
+// 그냥 빼도 되지만
 fruits.pop();
-fruits.pop();
+
+
+//popValue 는  변수에 담으면 그 빠진 값이 들어가게 된다;!!!!!!!!!!!!!!!!!!
+const popValue = fruits.pop();
 console.log(fruits);
+console.log(popValue + 'www');
 
 
 
@@ -112,7 +117,7 @@ console.log(newfruis);
 
 // indexOf
 
-console.clear();
+//console.clear();
 console.log(fruits);
 //배열 안에 사과 없으면 -1 로 출력이됨
 console.log(fruits.indexOf('🍎'));
@@ -128,7 +133,7 @@ console.log(fruits.includes('🍉'));
 
 
 // lastIndexOf
-console.clear();
+//console.clear();
 console.log(fruits);
 fruits.push('🍋');
 console.log(fruits);
