@@ -40,6 +40,8 @@
         .box_1.on,
         .box_2.on{
             background: red;
+            transition-timing-function: ease-in-out;
+
         }
         .drop_jon_1,
         .drop_jon_2{
@@ -64,14 +66,19 @@
     <div class="drop_jon_2 box">b</div>
     <script>
         $(document).ready(function (){
-            Draggable.create(".dragbox", {
+
+
+            var drags = Draggable.create(".box_1", {
                 type:"x,y",
                 edgeResistance:0.65,
                 bounds:".wrap",
                 inertia:true,
                 throwProps:true,
-                onPress: function (){
-                    //console.log(this);
+                edgeResistance:0.65,
+
+                onPress : function (){
+                    console.log(this.target);
+
                 },
                 onDrag : function (){
                    if(this.hitTest('.drop_jon_1','99%')){
@@ -102,7 +109,9 @@
                             });
                         }else{
                             $(this.target).addClass('on');
+                            $(this.target).addClass('off');
                             Aalert();
+
                         }
                     }
                     if(this.hitTest('.drop_jon_2','99%')){
@@ -113,19 +122,24 @@
                             });
                         }else{
                             $(this.target).addClass('on');
+                            $(this.target).addClass('off');
+
+
                             balert();
                         }
                     }
 
 
 
-                    console.log(this);
                     if (!$(this.target).hasClass("on")) {
                         //if there isn't a highlight, send it back to starting position
+                        /*
                         TweenLite.to(this.target, 0.2, {
                             x: 0,
                             y: 0
                         });
+
+                         */
                     }
                 }
             });
