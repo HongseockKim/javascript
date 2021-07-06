@@ -8,157 +8,102 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="gsap.min.js"></script>
     <script src="Draggable.min.js"></script>
+    <script src="js/index.js"></script>
     <style>
+        *{
+            margin: 0;padding: 0;
+        }
         .wrap{
             position: relative;
-            max-width: 1200px;
-            height: 600px;
-            margin: 0 auto;
-            background: #dfdfdf;
+            max-width:600px;
+            min-height:500px;
+            background: url("img/rocket.png")no-repeat center center;
+            background-size: 100%;
         }
-        .box{
-            position: absolute;
-            cursor: grab;text-align: center;line-height: 200px;font-size:34px;font-weight: bold;
-            text-transform: capitalize;color: #333;
-        }
-        .box_1{
-            width:200px;height: 200px;
-            background: aqua;
-            top:0;left:0;
-        }
-        .box_1.off{
-            top:0;left:0;
-        }
-        .box_2.off{
-            top:0;left:400px;
-        }
-        .box_2{
-            width:200px;height: 200px;
-            background: #9dff7e;
-            top:0;left:400px;
-        }
-        .box_1.on,
-        .box_2.on{
-            background: red;
-            transition-timing-function: ease-in-out;
+        .wrap.on{
+            background: url("img/color_rocket.png")no-repeat center center;
+            animation-name:roket ;
+            animation-delay: 0.5s;
+            animation-duration: 1s;
+            animation-fill-mode: forwards;
 
         }
-        .drop_jon_1,
-        .drop_jon_2{
-            text-align: center;line-height: 230px;font-size:34px;font-weight: bold;
-            text-transform: capitalize;color: #fff;
+        @keyframes roket {
+            from{
+                top:0;
+            }
+            to{
+                top:-100%
+            }
         }
-        .drop_jon_1{
-            width: 230px;height: 230px;
-            background: brown;bottom: 0;left: 0;
+        .wrap>div{
+            margin: 0 auto;
+            border-bottom: 1px solid #aaa;
+            box-sizing: border-box;
         }
-        .drop_jon_2{
-            width: 230px;height: 230px;
-            background: brown;bottom: 0;right: 0;
+        .top{
+            width:100%;height:323px;
+
+        }
+        .mid{
+            width:100%;height:300px;
+
+        }
+        .bottom{
+            width:100%;height:150px;
+
+        }
+        .wrap.on>div{
+            border-bottom: 0px;
+        }
+        .con{
+            width: 100vw;height: 100vh;
+            position: relative;
+            overflow: hidden;background: #6aa6ff;
+        }
+        .drop_box{
+            position: absolute;top:0;right:0;
+            width:600px;height: 100%;
+            background: #dedede;
+            z-index: 99;
+        }
+        .drop_box>div{
+            background: url('img/color_rocket.png')no-repeat;
+            background-size: 100%;
+        }
+        .drop_box>div.on{
+            box-shadow:0px 0px 100px 30px #9dff7e;
+        }
+        .drop_box .box_1{
+            max-width:600px;
+            height:323px;
+            background-position: 0 0;
+        }
+        .drop_box .box_2{
+            max-width:600px;
+            height:300px;
+            background-position: 0 -323px;
+        }
+        .drop_box .box_3{
+            max-width:600px;
+            height:150px;
+            background-position: 0 -623px;
         }
     </style>
 </head>
 <body>
-<div class="wrap">
-    <div class="box_1 box dragbox">a</div>
-    <div class="box_2 box dragbox">b</div>
-    <div class="drop_jon_1 box">a</div>
-    <div class="drop_jon_2 box">b</div>
-    <script>
-        $(document).ready(function (){
-
-
-            var drags = Draggable.create(".box_1", {
-                type:"x,y",
-                edgeResistance:0.65,
-                bounds:".wrap",
-                inertia:true,
-                throwProps:true,
-                edgeResistance:0.65,
-
-                onPress : function (){
-                    console.log(this.target);
-
-                },
-                onDrag : function (){
-                   if(this.hitTest('.drop_jon_1','99%')){
-                        /*
-                       TweenLite.to(this.target,1,{
-                           background:'red',
-                           //scale: 1.2
-                           width:100 + 'px',
-                           height : 100 + 'px',
-                       });*/
-
-
-                       //$(this.target).addClass('on');
-
-
-                   }else if(this.hitTest('.drop_jon_2','99%')){
-                          // $(this.target).addClass('on');
-                   }else{
-                       $(this.target).removeClass('on');
-                   }
-                },
-                onDragEnd :function (e){
-                    if(this.hitTest('.drop_jon_1','99%')){
-                        if($(this.target).hasClass('box_2')){
-                            TweenLite.to(this.target, 0.2, {
-                                x: 0,
-                                y: 0
-                            });
-                        }else{
-                            $(this.target).addClass('on');
-                            $(this.target).addClass('off');
-                            Aalert();
-
-                        }
-                    }
-                    if(this.hitTest('.drop_jon_2','99%')){
-                        if($(this.target).hasClass('box_1')){
-                            TweenLite.to(this.target, 0.2, {
-                                x: 0,
-                                y: 0
-                            });
-                        }else{
-                            $(this.target).addClass('on');
-                            $(this.target).addClass('off');
-
-
-                            balert();
-                        }
-                    }
-
-
-
-                    if (!$(this.target).hasClass("on")) {
-                        //if there isn't a highlight, send it back to starting position
-                        /*
-                        TweenLite.to(this.target, 0.2, {
-                            x: 0,
-                            y: 0
-                        });
-
-                         */
-                    }
-                }
-            });
-        });
-
-        function Aalert(){
-            setTimeout(function (){
-                alert('A드롭에 안착');
-            },500);
-
-        }
-        function balert(){
-            setTimeout(function (){
-                alert('B드롭에 안착');
-            },500);
-        }
-
-
-    </script>
+<div class="con">
+    <div class="drop_box">
+        <div class="box box_1"></div>
+        <div class="box box_3"></div>
+        <div class="box box_2"></div>
+    </div>
+    <div class="wrap">
+        <div class="top"></div>
+        <div class="mid"></div>
+        <div class="bottom"></div>
+    </div>
 </div>
+
 </body>
 </html>

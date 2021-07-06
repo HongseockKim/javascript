@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="gsap.min.js"></script>
+    <script src="Draggable.min.js"></script>
+    <style>
+        .wrap{
+            width: 90vw;
+            height: 90vh;
+            margin: 0 auto;
+            display: flex;background: #dfdfdf;
+        }
+        .box_2{
+            width:200px;height:200px;background: #9dff7e;text-align: center;line-height: 200px;
+            font-size: 2vw;color: #fff;
+        }
+        .test{
+            position: relative;
+            display: flex;
+            align-items: start;
+            flex-wrap: wrap;
+        }
+        .test:before{
+            content: '';
+            position: absolute;top:0;right:0;
+            width: 50%;
+            height: 100%;
+            background:#ccc;
+            z-index: -1;
+        }
+        .test>div{
+            flex-basis:calc(100% / 2);
+            box-sizing: border-box;
+        }
+        .review{padding:61px 10px 30px 10px;
+            background: #fff;
+        }
+        .code{padding:20px 10px;
+            background: #ccc;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+
+    <div class="box_2">box_2</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        drag();
+    });
+
+
+    function  drag(){
+        var drags = Draggable.create(".box_2", {
+            type:"x,y",
+            edgeResistance:0.65,
+            bounds:".wrap",
+            inertia:true,
+            throwProps:true,
+            edgeResistance:0.65,
+            liveSnap :{
+                points : [
+                    {x:0,y:0},
+                    {x:100,y:100},
+                    {x:200,y:200},
+                    {x:300,y:300},
+                    {x:400,y:400},
+                ],
+                /*
+                x : [0,100,200,300],
+                Y : [0,100,200,300]
+                */
+            },
+            onClick : function (){
+                console.log('클릭')
+            },
+            onPress : function (){
+                console.log(this.target);
+            },
+            onDragStart : function (){
+                console.log('드래그 스타트');
+            },
+            onDrag : function (){
+                console.log('드래그 계속실행');
+                if(this.hitTest('.drop_jon_2','99%')){
+                    console.log('접속');
+                }
+            },
+            onDragEnd :function (){
+
+            }
+        });
+
+    }
+
+
+
+
+</script>
+</body>
+</html>
