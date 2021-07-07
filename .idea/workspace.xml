@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c3f6381d-f9cf-4fea-890b-4fc83e9a819f" name="디폴트 변경 목록" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/drag/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/drag/js/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,8 +15,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -55,7 +54,8 @@
       <option name="presentableId" value="Default" />
       <updated>1625542573389</updated>
       <workItem from="1625542574654" duration="17605000" />
-      <workItem from="1625629460721" duration="15748000" />
+      <workItem from="1625629460721" duration="15821000" />
+      <workItem from="1625665555242" duration="7665000" />
     </task>
     <servers />
   </component>
