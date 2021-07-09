@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c3f6381d-f9cf-4fea-890b-4fc83e9a819f" name="디폴트 변경 목록" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -41,7 +42,13 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/drag/index.html" />
+    <property name="settings.editor.selected.configurable" value="web.server" />
     <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/drag/index.html" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -56,6 +63,10 @@
       <workItem from="1625542574654" duration="17605000" />
       <workItem from="1625629460721" duration="15821000" />
       <workItem from="1625665555242" duration="7665000" />
+      <workItem from="1625673693581" duration="258000" />
+      <workItem from="1625706064149" duration="13822000" />
+      <workItem from="1625739463172" duration="2898000" />
+      <workItem from="1625796526003" duration="6640000" />
     </task>
     <servers />
   </component>
