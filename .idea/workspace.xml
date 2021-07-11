@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c3f6381d-f9cf-4fea-890b-4fc83e9a819f" name="디폴트 변경 목록" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/drag/three.html" beforeDir="false" afterPath="$PROJECT_DIR$/drag/three.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +66,8 @@
       <workItem from="1625673693581" duration="258000" />
       <workItem from="1625706064149" duration="13822000" />
       <workItem from="1625739463172" duration="2898000" />
-      <workItem from="1625796526003" duration="6640000" />
+      <workItem from="1625796526003" duration="15108000" />
+      <workItem from="1625839698800" duration="8116000" />
     </task>
     <servers />
   </component>
