@@ -55,7 +55,7 @@
     <script src="jquery.reel.js"></script>
 </head>
 <body>
-<div class="wrap">
+<div class="wrap" style="padding-bottom:50px;">
     <div class="con">
         <div class="view"></div>
     </div>
@@ -70,6 +70,9 @@
     </div>
     <div class="con_5" class="reel" id="ww">
         <img id="image" src="" alt="">
+    </div>
+    <div class="con_5" class="reel" id="ww">
+        <img id="image_2" src="" alt="">
     </div>
 </div>
 <script>
@@ -86,9 +89,10 @@
          loops: true,
          draggable : true,
          throwable : true,
-         footage : 9,
+         footage : 1,
          spacing : 0,
          brake : 0.13,
+         revolution  : 1280,//끌어야하는 거리
          horizontal : true,
          suffix : false,
          indicator : 10,
@@ -103,6 +107,38 @@
 
      });
 
+
+     $('#image_2').reel({
+         class : 'reel',
+         images : 'img/jpg/test/#-reel.jpg|0..9',
+        attr : {
+          src : 'img/jpg/test/0-reel.jpg',
+        },
+         frame:  1,
+         frames:  10,
+         loops: false,
+         draggable : true,
+         throwable : true,
+         footage : 1,
+         spacing : 0,
+         brake : 0.13,
+         revolution  : 1280,//끌어야하는 거리
+         steppable : true,
+         horizontal : true,
+         suffix : false,
+         directional : false,
+         cw : true,
+         indicator : 30,
+         //preload : "fidelity",
+         cursor : 'move',
+         annotations : {
+             "copyright": {
+                 x: 100,
+                 y: 200,
+             },
+         }
+
+     });
 
 
     });
