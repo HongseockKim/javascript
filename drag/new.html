@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="intercept.js"></script>
+    <style>
+        *{margin:0;padding: 0;}
+        .drag_box{
+            position: relative;
+            z-index:5;
+            width:100px;height:100px;
+            background: #ccc;
+            touch-action: none;
+            user-select: none;
+        }
+        .wrap{
+            position: relative;
+            max-width:1200px;
+            height:600px;margin: 0 auto;
+            background: #dedede;
+        }
+        .dropt_zone{
+            position: absolute;
+            bottom:10px;left:50%;
+            transform: translateX(-50%);
+            width:200px;height:200px;
+            background: #f1cf35;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <div class="drag_box"></div>
+    <div class="dropt_zone"></div>
+</div>
+<script>
+    (function dragbles(){
+        const position = { x: 0, y: 0 }
+        interact('.drag_box').draggable({
+            inertia: true,
+            modifiers: [
+                interact.modifiers.restrict({
+                    restriction: 'parent',
+                    endOnly: true
+                })
+            ],
+            listeners: {
+                start (event) {
+                    console.log(event.type, event.target)
+
+                },
+                move (event) {
+                    position.x += event.dx
+                    position.y += event.dy
+
+                    event.target.style.transform =
+                        `translate(${position.x}px, ${position.y}px)`
+                },
+            }
+
+        })
+        .resizable({
+            inertia: {
+                resistance: 30,//동작이 느려지는 속도 0보다 큰숫자 높을수록 빨라짐
+                minSpeed: 200,
+                endSpeed: 100 // 동작이 중지된것으로 간주되는 속도
+            }
+        });
+        interact('.dropt_zone').dropzone({
+            accept: '.drag_box',
+            ondrop : function (e) {
+                console.log(e);
+            },
+
+        })
+    })();
+</script>
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        .con{
+            max-width: 1200px;margin: 0 auto;
+            height:760px;background: #ccc;
+        }
+        .con_2{
+            position: relative;
+            max-width:1200px;height:760px;margin: 100px auto 0 auto;
+            background: #eee;
+        }
+        .con_2>img{
+            position: absolute;top:0;left:0;width: 100%;height:100%;
+        }
+        .con_3{
+            max-width: 1200px;margin: 100px auto 0  auto;
+            height: 760px;background: #ccc;
+        }
+        .con_4{
+            position: relative;
+            max-width: 1200px;margin: 100px auto 0 auto;
+            height:760px; background: #ccc;
+        }
+        .con_4>img{
+            position: absolute;top:0;left:0;width: 100%;height:100%;
+        }
+        .con_5{
+            position: relative;
+            max-width: 1200px;margin: 100px auto 0 auto;
+            height:760px; background: #ccc;
+        }
+        .con_5>img{
+            position: absolute;top:0;left:0;width: 100%;height:100%;
+        }
+        #copyright{
+            width: 100px;height: 100px;
+            background:red;color: #fff;
+        }
+        #link{
+            display: block;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="threesixty.js"></script>
+    <script src="jquery.threesixty.min.js"></script>
+    <script src="ci360.service.js"></script>
+    <script src="jquery.reel.js"></script>
+</head>
+<body>
+<div class="wrap" style="padding-bottom:50px;">
+    <div class="con">
+        <div class="view"></div>
+    </div>
+    <div class="con_2 threesixty" data-path="img/jpg/{index}.jpg" data-count ="9">
+
+    </div>
+    <div class="con_3 cloudimage-360" data-filename="C:\Users\gusdu\javascript\drag\img\jpg/{index}.jpg" data-amount="9">
+
+    </div>
+    <div class="con_4">
+        <img  class="reel" src="img/jpg/0.jpg" data-images="img/jpg/reel/test_#.jpg|1..10" data-frames="9" data-footage="9" data-throwable="true"  alt="">
+    </div>
+    <div class="con_5" class="reel" id="ww">
+        <img id="image" src="" alt="">
+    </div>
+    <div class="con_5" class="reel" id="ww">
+        <img id="image_2" src="" alt="">
+    </div>
+</div>
+<script>
+    $(document).ready(function (){
+
+     $('#image').reel({
+         class : 'reel',
+         images : 'img/jpg/test/#-reel.jpg|0..9',
+        attr : {
+          src : 'img/jpg/test/0-reel.jpg',
+        },
+         frame:  0,
+         frames:  10,
+         loops: true,
+         draggable : true,
+         throwable : true,
+         footage : 1,
+         spacing : 0,
+         brake : 0.13,
+         revolution  : 1280,//끌어야하는 거리
+         horizontal : true,
+         suffix : false,
+         indicator : 10,
+         preload : "fidelity",
+         cursor : 'move',
+         annotations : {
+             "copyright": {
+                 x: 100,
+                 y: 200,
+             },
+         }
+
+     });
+
+
+     $('#image_2').reel({
+         class : 'reel',
+         images : 'img/jpg/test/#-reel.jpg|0..9',
+        attr : {
+          src : 'img/jpg/test/0-reel.jpg',
+        },
+         frame:  1,
+         frames:  10,
+         loops: false,
+         draggable : true,
+         throwable : true,
+         footage : 1,
+         spacing : 0,
+         brake : 0.13,
+         revolution  : 1280,//끌어야하는 거리
+         steppable : true,
+         horizontal : true,
+         suffix : false,
+         directional : false,
+         cw : true,
+         indicator : 30,
+         //preload : "fidelity",
+         cursor : 'move',
+         annotations : {
+             "copyright": {
+                 x: 100,
+                 y: 200,
+             },
+         }
+
+     });
+
+
+    });
+</script>
+<script>
+    window.CI360.init();
+</script>
+<script>
+    //제이쿼리 버전
+    $(document).ready(function(){
+        var $threeSixty = $('.threesixty');
+        $threeSixty.threeSixty({
+            // horizontal OR vertical
+            dragDirection: 'horizontal',
+            // use arrow keys
+            useKeys: true,
+            // is draggable?
+            draggable: true
+        });
+    });
+
+</script>
+<script>
+
+    let con = document.getElementsByClassName('view');
+    console.log(con);
+    const threesixty = new ThreeSixty(con[0], {
+        image: [
+            'img/0.png',
+            'img/1.png',
+            'img/2.png',
+            'img/3.png',
+            'img/4.png',
+            'img/5.png',
+            'img/6.png',
+            'img/7.png',
+            'img/8.png',
+            'img/9.png',
+        ],
+        count: 10,
+        speed : 50,
+        inverted: true,
+        width : 1200,
+        height : 760,
+        draggable : true,
+        swipeable : true,
+        perRow: 4,
+        prev: document.getElementById('prev'),
+        next: document.getElementById('next')
+    });
+    threesixty.goto(1);
+</script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<script src="../drag/gsap.min.js"></script>
+	<script  src="../drag/Draggable.min.js"></script>
+	<script src="drag.js"></script>
+	<style>
+        *{margin: 0;padding: 0;}
+        .wrap{
+            width:1200px;margin: 0 auto;
+        }
+		.wrap > div{
+			text-align: center;
+			padding:20px 0;
+		}
+		.sky_con,
+		.ground_con,.deep_ground_con,
+		.river_con{
+			position: relative;
+			border-bottom: 1px solid #ccc;
+		}
+        .sky_con p,
+        .ground_con p,.deep_ground_con p,
+        .river_con p{
+			position: absolute;top:50%;left:50%;
+			transform: translate(-50%,-50%);width:100%;
+			text-align: left;
+		}
+		.bottom_wrap:after{
+			content: '';
+			display: block;
+			clear: both;
+		}
+		.deep_ground_con,
+		.river_con{
+			float: left;
+			width:50%;
+		}
+        .drop_zone_list,
+        .drop_zone_list li{
+			display: inline-block;
+		}
+		.drop_zone_item{
+			position: relative;
+            z-index: 10;
+			width:120px;height: 120px;
+			border: 1px dotted #ccc;
+			background: #eeeeee;border-radius: 50%;
+		}
+		.drop_item_con{
+			text-align: center;
+		}
+		.drop_item{
+			position: relative;
+            z-index: 10;
+			display: inline-block;
+            width:120px;height: 120px;
+			border-radius: 50%;background: #6aa6ff;
+			line-height: 120px;
+		}
+        .drop_item.on{
+			box-shadow: 0px 0px 3px 3px #f1cf35;
+		}
+		.reset_btn{
+			display: block;
+			width: 150px;height:40px;
+			text-align: center;line-height:40px;
+			margin: 0 auto;
+			display: none;
+		}
+		.reset_btn.on{
+			display: block;
+		}
+	</style>
+</head>
+<body>
+<div class="wrap">
+	<div class="sky_con">
+		<p>하늘</p>
+		<ul class="drop_zone_list sky">
+			<li class="drop_zone_item sky one"></li>
+			<li class="drop_zone_item sky two"></li>
+			<li class="drop_zone_item sky three"></li>
+		</ul>
+	</div>
+	<div class="ground_con">
+		<p>땅</p>
+		<ul class="drop_zone_list ground">
+			<li class="drop_zone_item ground one"></li>
+			<li class="drop_zone_item ground two"></li>
+			<li class="drop_zone_item ground three"></li>
+		</ul>
+	</div>
+	<div class="bottom_wrap">
+		<div class="deep_ground_con">
+			<p>땅속</p>
+			<ul class="drop_zone_list deep">
+				<li class="drop_zone_item deep_ground one"></li>
+				<li class="drop_zone_item deep_ground two"></li>
+				<li class="drop_zone_item deep_ground three"></li>
+			</ul>
+		</div>
+		<div class="river_con">
+			<p>강</p>
+			<ul class="drop_zone_list river">
+				<li class="drop_zone_item river one"></li>
+				<li class="drop_zone_item river two"></li>
+				<li class="drop_zone_item river three"></li>
+			</ul>
+		</div>
+	</div>
+	<div class="drop_item_con">
+		<div class="drop_item sky one">스카이</div>
+		<div class="drop_item sky two">스카이</div>
+		<div class="drop_item sky three">스카이</div>
+		<div class="drop_item ground one">땅</div>
+		<div class="drop_item ground two">땅</div>
+		<div class="drop_item ground three">땅</div>
+		<div class="drop_item deep_ground one">땅속</div>
+		<div class="drop_item deep_ground two">땅속</div>
+		<div class="drop_item deep_ground three">땅속</div>
+		<div class="drop_item river one">강</div>
+		<div class="drop_item river two">강</div>
+		<div class="drop_item river three">강</div>
+	</div>
+</div>
+<div>
+	<button class="reset_btn">reset</button>
+</div>
+</body>
+</html>
