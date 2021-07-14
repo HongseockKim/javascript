@@ -20,8 +20,14 @@ function test(){
     var mousepointes = "";
     var btn = "";
     var line = "";
+    var isTouchs = false;
     console.log($('#a'));
-    $('.start').on('mousedown',function (e){
+    $('.start').on('mousedown touchstart',function (e){
+        //e = (e.clientX === undefined) ? e.touches[0] : e;
+        if(e.clientX === undefined){
+            e = e.touches[0]
+            isTouchs = true;
+        }
         btn = $(this).val();
         drags = true;
         safe = false;
@@ -33,22 +39,26 @@ function test(){
         centerSvgY = offsetY + ($(this).height() / 2 );
         testsX = e.offsetX;
         testsY = e.offsetY;
-        console.log(testsX);
-        console.log(testsY);
-        console.log(btn);
+
+
 
         if(btn === 'a'){
             console.log('a');
             line = $('#a');
-            return  line
+
+
         }else if(btn === 'c'){
             line = $('#c');
-            return  line
+
         }else if(btn === 'e'){
             line = $('#e');
-            return  line
+
+
         }
 
+        line.css({
+            'display':'block'
+        });
 
         $('html,body').css({
             "cursor": "grabbing"
@@ -57,8 +67,13 @@ function test(){
         return safe
     })
 
-    $(document).on('mousemove',function (e){
-         if(drags === true){
+    $(document).on('mousemove touchmove',function (e){
+        if(e.clientX === undefined){
+            console.log('터치');
+            e = e.touches[0]
+        }
+
+        if(drags === true){
             delX = e.clientX - startX;
             delY = e.clientY - startY;
 
@@ -72,26 +87,34 @@ function test(){
          }
     });
 
-    $(document).on('mouseup',function (e){
+    $(document).on('mouseup touchend',function (e){
+
         drags = false;
         if(safe){
             return  false
         }
-        if($(e.target).hasClass('end')){
-            safe = true;
 
-            endCenterX = $(e.target).position().left + ($(e.target).width() / 2);
-            endCenterY = $(e.target).position().top + ($(e.target).height() / 2);
+        if(isTouchs === true){
+            console.log(Math.abs(e.changedTouches[0].clientX) );
+            console.log(Math.abs(e.changedTouches[0].clientY) );
 
-            $(line).attr('x2',endCenterX)
-            $(line).attr('y2',endCenterY)
-
-            return safe;
         }else{
-            $(line).attr('x1',0)
-            $(line).attr('y1',0)
-            $(line).attr('x2',0)
-            $(line).attr('y2',0)
+            if($(e.target).hasClass('end')){
+                safe = true;
+
+                endCenterX = $(e.target).position().left + ($(e.target).width() / 2);
+                endCenterY = $(e.target).position().top + ($(e.target).height() / 2);
+
+                $(line).attr('x2',endCenterX)
+                $(line).attr('y2',endCenterY)
+
+                return safe;
+            }else{
+                $(line).attr('x1',0)
+                $(line).attr('y1',0)
+                $(line).attr('x2',0)
+                $(line).attr('y2',0)
+            }
         }
 
 
@@ -99,6 +122,8 @@ function test(){
             "cursor": "default"
         });
 
+        isTouchs = false;
+        return  isTouchs;
     });
 
 
