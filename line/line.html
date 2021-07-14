@@ -22,16 +22,31 @@
 			position: absolute;
 			background: #ccc;
 			width: 50px;height:50px;
-			cursor: grab;
 		}
-		.start{
+		.start.a{
 			top:20px;
 			left:0;
 		}
-		.end{
+		.end.b{
 			top:20px;
 			right:0;
 		}
+        .start.c{
+            top:100px;
+            left:0;
+        }
+        .end.d{
+            top:100px;
+            right:0;
+        }
+        .start.e{
+            top:180px;
+            left:0;
+        }
+        .end.f{
+            top:180px;
+            right:0;
+        }
 		.line{
 			width:50px;height:50px;border-radius:50%;background: #ccc;}
 		svg{
@@ -54,8 +69,12 @@
 <body>
 <div class="con">
 	<div class="btn_con">
-		<button class="start">a</button>
-		<button class="end">b</button>
+		<button class="start a">a</button>
+		<button class="end b">b</button>
+		<button class="start c">c</button>
+		<button class="end d">d</button>
+		<button class="start e">e</button>
+		<button class="end f">f</button>
 	</div>
 	<svg>
 		<line x1="0" y1="0" x2="2000" y2="0"></line>

@@ -16,11 +16,11 @@ function test(){
     var drags = false;
     var testsX = 0;
     var testsY = 0;
-
-
+    var safe = false;
     var mousepointes = "";
     $('.start').on('mousedown',function (e){
         drags = true;
+        safe = false;
         startX = e.clientX;
         startY = e.clientY;
         offsetX = $(this).position().left;
@@ -36,12 +36,14 @@ function test(){
         $('html,body').css({
             "cursor": "grabbing"
         });
-    });
+        return safe
+    })
+
     $(document).on('mousemove',function (e){
-        if(drags === true){
+         if(drags === true){
             delX = e.clientX - startX;
             delY = e.clientY - startY;
-           //console.log(delX)
+            //console.log(delX)
             //console.log(delY)
             $('svg line').attr('x1',testsX)
             $('svg line').attr('y1',centerSvgY)
@@ -50,17 +52,24 @@ function test(){
             $('html,body').css({
                 "cursor": "grabbing"
             });
-        }
+         }
     });
 
     $(document).on('mouseup',function (e){
         drags = false;
+        if(safe){
+            return  false
+        }
         if($(e.target).hasClass('end')){
+            safe = true;
+
             endCenterX = $(e.target).position().left + ($(e.target).width() / 2);
             endCenterY = $(e.target).position().top + ($(e.target).height() / 2);
 
             $('svg line').attr('x2',endCenterX)
             $('svg line').attr('y2',endCenterY)
+
+            return safe;
         }else{
             $('svg line').attr('x1',0)
             $('svg line').attr('y1',0)
