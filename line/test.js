@@ -18,7 +18,11 @@ function test(){
     var testsY = 0;
     var safe = false;
     var mousepointes = "";
+    var btn = "";
+    var line = "";
+    console.log($('#a'));
     $('.start').on('mousedown',function (e){
+        btn = $(this).val();
         drags = true;
         safe = false;
         startX = e.clientX;
@@ -27,15 +31,29 @@ function test(){
         offsetY = $(this).position().top;
         centerSvgX = offsetX + ($(this).width() / 2 );
         centerSvgY = offsetY + ($(this).height() / 2 );
-
         testsX = e.offsetX;
         testsY = e.offsetY;
         console.log(testsX);
         console.log(testsY);
+        console.log(btn);
+
+        if(btn === 'a'){
+            console.log('a');
+            line = $('#a');
+            return  line
+        }else if(btn === 'c'){
+            line = $('#c');
+            return  line
+        }else if(btn === 'e'){
+            line = $('#e');
+            return  line
+        }
+
 
         $('html,body').css({
             "cursor": "grabbing"
         });
+
         return safe
     })
 
@@ -43,13 +61,12 @@ function test(){
          if(drags === true){
             delX = e.clientX - startX;
             delY = e.clientY - startY;
-            //console.log(delX)
-            //console.log(delY)
-            $('svg line').attr('x1',testsX)
-            $('svg line').attr('y1',centerSvgY)
-            $('svg line').attr('x2',delX + centerSvgX)
-            $('svg line').attr('y2',delY + centerSvgY)
-            $('html,body').css({
+
+            $(line).attr('x1',testsX)
+            $(line).attr('y1',centerSvgY)
+            $(line).attr('x2',delX + centerSvgX)
+            $(line).attr('y2',delY + centerSvgY)
+            $(line).css({
                 "cursor": "grabbing"
             });
          }
@@ -66,15 +83,15 @@ function test(){
             endCenterX = $(e.target).position().left + ($(e.target).width() / 2);
             endCenterY = $(e.target).position().top + ($(e.target).height() / 2);
 
-            $('svg line').attr('x2',endCenterX)
-            $('svg line').attr('y2',endCenterY)
+            $(line).attr('x2',endCenterX)
+            $(line).attr('y2',endCenterY)
 
             return safe;
         }else{
-            $('svg line').attr('x1',0)
-            $('svg line').attr('y1',0)
-            $('svg line').attr('x2',0)
-            $('svg line').attr('y2',0)
+            $(line).attr('x1',0)
+            $(line).attr('y1',0)
+            $(line).attr('x2',0)
+            $(line).attr('y2',0)
         }
 
 
