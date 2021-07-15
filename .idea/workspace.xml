@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c3f6381d-f9cf-4fea-890b-4fc83e9a819f" name="디폴트 변경 목록" comment="update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/drag_sample/zoom.html" beforeDir="false" afterPath="$PROJECT_DIR$/drag_sample/zoom.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +79,7 @@
       <workItem from="1626161530407" duration="8741000" />
       <workItem from="1626220682500" duration="25549000" />
       <workItem from="1626307695301" duration="93000" />
-      <workItem from="1626307790915" duration="21017000" />
+      <workItem from="1626307790915" duration="21193000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1626159698140</created>

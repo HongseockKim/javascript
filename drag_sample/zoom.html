@@ -27,12 +27,29 @@
     background: #cbcbcb;
     border-radius: 10px;
   }
+  .scroll_con:before{
+    content: '-';
+    position: absolute;
+    top:10px;left:50%;
+    font-weight: bold;
+    font-size:16px;color: red;
+    transform: translateX(-50%);
+  }
+.scroll_con:after{
+  content: '+';
+  position: absolute;
+  bottom:10px;left:50%;
+  font-weight: bold;
+  font-size:16px;color: blue;
+  transform: translateX(-50%);
+}
   .scroll_con .bar{
     position: absolute;
     top:0;left:0;
     width: 100%;border-radius:10px;
     height:60px;background: #6aa6ff;
     cursor: grab;
+    z-index: 20;
   }
 </style>
 <body>
