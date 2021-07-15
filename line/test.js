@@ -3,6 +3,7 @@ $(document).ready(function (){
 });
 
 function test(){
+    var lines= $('.start').length + 1;
     var startX = 0;
     var startY = 0;
     var offsetX =0;
@@ -21,7 +22,10 @@ function test(){
     var btn = "";
     var line = "";
     var isTouchs = false;
-    console.log($('#a'));
+
+
+
+
     $('.start').on('mousedown touchstart',function (e){
         //e = (e.clientX === undefined) ? e.touches[0] : e;
         if(e.clientX === undefined){
@@ -41,7 +45,6 @@ function test(){
         testsY = e.offsetY;
 
 
-
         if(btn === 'a'){
             console.log('a');
             line = $('#a');
@@ -52,8 +55,6 @@ function test(){
 
         }else if(btn === 'e'){
             line = $('#e');
-
-
         }
 
         line.css({
