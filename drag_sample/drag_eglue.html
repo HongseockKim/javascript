@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="jquery-ui.min.js"></script>
+	<script src="drag_eglue.js"></script>
+	<style>
+        *{
+            margin: 0;padding:0;
+        }
+		body{
+			width: 100vw;
+			height: 100vh;
+		}
+		.wrap{
+			width: 1200px;margin:0 auto;padding-top:30px;
+
+		}
+		.wrap:after{
+			content: '';display: block;clear: both;
+		}
+		.drop_list_con{
+			float:left;
+            background: url("img/test.jpg") no-repeat center center;
+            background-size:cover;
+		}
+		.drag_con{
+			position: relative;
+			float:left;height: 780px;
+			width: calc(100% - 800px);
+		}
+		.drag_con .btn_wrap{
+			position: absolute;
+			top:50%;left:50%;
+			transform: translate(-50%,-50%);
+			min-width:300px;min-height:250px;
+			border:1px solid #ccc;box-sizing: border-box;
+			padding:20px;
+		}
+		.drag_item{
+			width:100px;height:100px;
+			background: #6aa6ff;
+			margin: 0 auto;text-align: center;line-height:100px;
+			cursor: grab;
+		}
+		.drag_item.grap{
+			cursor: grabbing;
+		}
+		.drop_zone{
+			height:130px;border:1px solid #ccc;
+			box-sizing: border-box;background: #fff;
+		}
+        .drop_zone.type_6,
+        .drop_zone.type_5{
+			width: 800px;margin: 0 auto;
+		}
+		.drop_list_con > .inner:after{
+			content: '';display: block;clear: both;
+		}
+        .drop_list_con > .inner .drop_zone.type_7{
+			width: 400px;height:520px;float: left;
+		}
+        .drop_list_con > .inner .in_inner{
+			width: calc(100% - 400px);
+			float:left;
+		}
+		.type_1.on{
+			background: transparent;
+			border:none;
+		}
+		.type_2.on{
+            background: transparent;
+            border:none;
+		}
+		.type_3.on{
+            background: transparent;
+            border:none;
+		}
+		.type_4.on{
+            background: transparent;
+            border:none;
+		}
+        .type_5.on{
+            background: transparent;
+            border:none;
+		}
+        .type_6.on{
+            background: transparent;
+            border:none;
+		}
+        .type_7.on{
+            background: transparent;
+            border:none;
+        }
+
+
+	</style>
+</head>
+<body>
+<div class="wrap">
+	<div class="drop_list_con">
+		<div class="drop_zone type_6"></div>
+		<div class="drop_zone type_5"></div>
+		<div class="inner">
+			<div class="drop_zone type_7"></div>
+			<div class="in_inner">
+				<div class="drop_zone type_4"></div>
+				<div class="drop_zone type_3"></div>
+				<div class="drop_zone type_2"></div>
+				<div class="drop_zone type_1"></div>
+			</div>
+		</div>
+	</div>
+	<div class="drag_con">
+		<div class="btn_wrap">
+			<div class="drag_item">눈</div>
+			<button type="button" class="reset">다시짖기</button>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="jquery-ui.min.js"></script>
+  <script src="zoom.js"></script>
+</head>
+<style>
+*{margin: 0;padding:0;}
+  .scroll_wrap{
+    padding:20px 0;
+    width:1200px;margin: 100px auto;
+    min-height:400px;
+    text-align: right;
+    background: url("img/test.jpg")no-repeat center center;
+    background-size: 1%;
+    border:1px solid #ccc;box-sizing: border-box;
+  }
+
+
+  .scroll_con{
+    position: relative;
+    display: inline-block;
+    width:30px;height:500px;
+    background: #cbcbcb;
+    border-radius: 10px;
+  }
+  .scroll_con .bar{
+    position: absolute;
+    top:0;left:0;
+    width: 100%;border-radius:10px;
+    height:60px;background: #6aa6ff;
+    cursor: grab;
+  }
+</style>
+<body>
+<div class="scroll_wrap">
+  <div class="scroll_con">
+    <span class="bar"></span>
+  </div>
+</div>
+</body>
+</html>
