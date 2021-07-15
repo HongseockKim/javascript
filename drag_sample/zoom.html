@@ -43,7 +43,7 @@
   font-size:16px;color: blue;
   transform: translateX(-50%);
 }
-  .scroll_con .bar{
+.bar{
     position: absolute;
     top:0;left:0;
     width: 100%;border-radius:10px;
@@ -51,12 +51,34 @@
     cursor: grab;
     z-index: 20;
   }
+.bar_2{
+    position: absolute;
+    top:0;left:0;
+    width: 100%;border-radius:10px;
+    height:60px;background: #6aa6ff;
+    cursor: grab;
+    z-index: 20;
+}
+  .scroll_wrap_2{
+      padding:20px 0;
+      width:1200px;margin: 100px auto;
+      min-height:400px;
+      text-align: right;
+      background: url("img/test_2.jpg")no-repeat center center;
+      background-size: 1%;
+      border:1px solid #ccc;box-sizing: border-box;
+  }
 </style>
 <body>
 <div class="scroll_wrap">
   <div class="scroll_con">
     <span class="bar"></span>
   </div>
+</div>
+<div class="scroll_wrap_2">
+	<div class="scroll_con">
+		<span class="bar_2"></span>
+	</div>
 </div>
 </body>
 </html>

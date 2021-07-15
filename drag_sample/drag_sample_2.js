@@ -30,6 +30,7 @@ function dragsample_2(){
             onDragEnd :dropend,
         });
     });
+
     dragItemground.forEach(function (e){
         var skyDrag = new Draggable(e,{
             type : "x,y",
