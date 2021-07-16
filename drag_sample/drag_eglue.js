@@ -8,7 +8,6 @@ $(function (){
         $(this).removeClass('grap');
     });
 
-    var isrevert = true;
     var checkss = new chekss();
 
     $('.drag_item').draggable({
@@ -57,6 +56,7 @@ $(function (){
                 target.addClass('on');
             }
         }
+
 
         this.sub = function (num){
            if(num === 7){

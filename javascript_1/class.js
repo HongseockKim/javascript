@@ -111,7 +111,7 @@ class Shape{
 
     getArea(){
         return this.width * this.height;
-        
+
     }
 }
 
@@ -148,3 +148,17 @@ console.log(updatetriangle.getArea());
 //변수 와 클래스를 instanceof 로 출력하면
 // 불리언 값으로 트루 인지 아닌지 알려준다; instance 인지;
 console.log(rectangel instanceof Rectangle);
+
+
+addEventListener('click'함수실행)
+
+함수실행(){
+    return function (){
+        이 안에 있는 코드를 바로 리턴 시킨다
+
+    }
+}
+
+
+
+
