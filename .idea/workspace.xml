@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c3f6381d-f9cf-4fea-890b-4fc83e9a819f" name="디폴트 변경 목록" comment="update">
-      <change afterPath="$PROJECT_DIR$/drag_sample/img/lines.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/line/line.html" beforeDir="false" afterPath="$PROJECT_DIR$/line/line.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/line/test.js" beforeDir="false" afterPath="$PROJECT_DIR$/line/test.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +52,7 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.appearance" />
@@ -81,6 +83,7 @@
       <workItem from="1626307695301" duration="93000" />
       <workItem from="1626307790915" duration="29924000" />
       <workItem from="1626398249401" duration="26406000" />
+      <workItem from="1627603463741" duration="4556000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1626159698140</created>
