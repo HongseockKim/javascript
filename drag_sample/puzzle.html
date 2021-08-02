@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="jquery-ui.min.js"></script>
+    <script src="puzzle.js"></script>
+    <style>
+        *{margin: 0;padding: 0;}
+        .drop_jon_wrap{
+            width:890px;position: relative;
+            height:600px;margin: 0 auto;
+            background: url("./img/puzzle.jpg")no-repeat center center;
+            background-size: cover;
+        }
+        .drag_item_wrap{
+
+            width: 890px;margin:0 auto;min-height: 400px;
+        }
+        .drop_jon{
+            position: absolute;top:0;left:0;
+        }
+        .drop_jon.type_1{
+            top: 442px;
+            left: auto;
+            right: 32px;
+            width: 160px;
+            height: 140px;
+            border-radius: 0 0 33px 0;
+        }
+        .drop_jon.type_1 img{
+            position: absolute;
+            top:0;left:-50px;
+            width: 209px;
+        }
+        .drop_jon.type_2 img{
+            position: absolute;
+            top: -39px;
+            left: -2px;
+            width: 170px;
+        }
+        .drop_jon img{
+            display: none;
+        }
+        .drop_jon.on img{
+            display: block;
+        }
+        .drop_jon.type_2{
+            top: 442px;
+            left: auto;
+            right: 194px;
+            width: 160px;
+            height: 140px;
+        }
+        .drag_item{
+            display: inline-block;
+            background: transparent;
+        }
+        .drag_item.on{
+            display: none;
+        }
+        .drag_item.clone{
+            top:auto;left:auto;
+        }
+        .drag_item.type_1 img{
+            width: 209px;
+        }
+        .drag_item.type_2 img{
+            width: 170px;
+        }
+    </style>
+</head>
+<body>
+<div class="drop_jon_wrap">
+    <div class="drop_jon type_1" data-type="type_1">
+        <img src="./img/puszzle_1.png" alt="">
+    </div>
+    <div class="drop_jon type_2" data-type="type_2">
+        <img src="./img/puszzle_2.png" alt="">
+    </div>
+</div>
+<div class="drag_item_wrap">
+<div class="drag_item type_1" data-type="type_1"><img src="./img/puszzle_1.png" alt=""></div>
+<div class="drag_item type_2" data-type="type_2"><img src="./img/puszzle_2.png" alt=""></div>
+</div>
+</body>
+</html>
