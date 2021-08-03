@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        *{margin:0;padding:0;box-sizing: border-box}
+        .wrap{
+            padding:50px;
+        }
+        .box{
+            position: relative;top: -656px;left: 561px;
+            width:100px;height:100px;background: #ccc;
+        }
+        .image_wrap{
+            position: relative;
+            width: 700px;height:700px;margin: 0 auto;
+        }
+        .image_wrap svg{
+            position: absolute;top:0;left:0;
+            width: 100%;height:100%;
+        }
+        .image_wrap svg path{
+            position: absolute;top:0;left:0;
+            width: 100%;
+            fill:none;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:5;
+            stroke: #2b2b2b;
+        }
+        .modal{
+            display:none;
+            position: fixed;top:50%;left:50%;transform: translate(-50%,-50%);
+            width:400px;height:400px;background: #ccc;
+            z-index: 50;
+        }
+        .modal.on{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+ <div class="image_wrap">
+    <svg>
+        <path d="M 50 50 Q 50 300 50 300 Q 150 300 200 300 Q 200 50 200 50 C 350 50 350 50 350 50 C 350 50 350 300 350 300 L 350 450 L 550 450 L 550 250 L 700 250 L 700 550 L 800 550 L 800 50 "></path>
+    </svg>
+ </div>
+<div class="box"></div>
+    <button type="button" class="start">시작하기</button>
+    <button type="button" class="reset">다시하기</button>
+    <div class="modal">
+        <p class="text">문제</p>
+        <button type="button" data-qna="o">O</button>
+        <button type="button" data-qna="X">X</button>
+    </div>
+</div>
+<script>
+    $(document).ready(function (){
+        var path = $('svg path').get(0);
+        var path_length =path.getTotalLength();
+        var check = "";
+        var modal = $('.modal');
+        var text = $('.modal p');
+            path.style.strokeDasharray =path_length;
+        path.style.strokeDashoffset = path_length;
+        console.log(path_length)
+        var qna = new quistion();
+
+        $('.start').on('click',function (){
+           qna.start();
+        });
+        $('.reset').on('click',function (){
+           $('.box').css({'top':'0','left':'0'});
+        });
+
+        function quistion(){
+            this.qnas = function (){
+                modal.find('button').on('click',function (){
+                    if(check === 'stap_1') {
+                        if ($(this).data('qna') === 'o') {
+                            modal.removeClass('on');
+                            qna.step_1();
+                        }else {
+                            alert('다시 생각해보세요');
+                        }
+                    }else if(check === 'stap_2'){
+                            if ($(this).data('qna') === 'o') {
+                                modal.removeClass('on');
+                                qna.step_2();
+                            }else {
+                                alert('다시 생각해보세요');
+                            }
+                        }else if(check === 'stap_3'){
+                            if ($(this).data('qna') === 'o') {
+                                modal.removeClass('on');
+                            }else {
+                                alert('다시 생각해보세요');
+                            }
+                    }
+
+
+                });
+            }
+            this.start = function (){
+                $(path).animate({strokeDashoffset:2200},1200);
+                $('.box').stop(true).animate({'top':'-450px'},600,function (){
+                    $(this).stop().animate({'left':'708px'},500,function (){
+                        $(this).stop(true).animate({'top':'-546px'},200,function (){
+                            text.text('문제1번')
+                            modal.addClass('on');
+                            check = 'stap_1'
+                            qna.qnas()
+                        })
+                    });
+                });
+            }
+            this.step_1 = function (){
+                $(path).stop(true).animate({strokeDashoffset:1900},3250)
+                $('.box').stop(true).animate({'top':'-546px'},300,function (){
+                    $(this).stop(true).animate({'top':'-694px'},700,function (){
+                        $(this).stop(true).animate({'left':'818px'},600,function (){
+                            text.text('문제2번')
+                            modal.addClass('on');
+                            check = 'stap_2'
+                            qna.qnas()
+                        });
+                    });
+                })
+            }
+            this.step_2 = function (){
+                $(path).stop(true).animate({strokeDashoffset:1500},3600)
+                $('.box').stop(true).animate({'left':'818px'},200,function (){
+                    $(this).stop(true).animate({'left':'860px'},600,function (){
+                        $(this).stop(true).animate({'top':'-359px'},400,function (){
+                            text.text('문제3번')
+                            modal.addClass('on');
+                            check = 'stap_3'
+                            qna.qnas()
+                        })
+                    });
+                });
+            }
+
+
+        }
+    });
+</script>
+</body>
+</html>
